@@ -19,8 +19,11 @@ class Security:
 
 	# impersonate is like login so return session token, but with admin user access and user named p_user
 	def impersonate(self,p_user,p_server_ip,p_admin_user,p_admin_password):
-		#log_info.info('send for BI server....')
-		client = Client(p_server_ip+self.wsdl)
-		#client = zeep.Client(wsdl=server_ip+self.wsdl)
-		self.session_token = client.service.impersonate(p_admin_user,p_admin_password,p_user)
-		
+		try:
+			#log_info.info('send for BI server....')
+			client = Client(p_server_ip+self.wsdl)
+			#client = zeep.Client(wsdl=server_ip+self.wsdl)
+			self.session_token = client.service.impersonate(p_admin_user,p_admin_password,p_user)
+			return True
+		except:
+			return False

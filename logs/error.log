@@ -15,3 +15,19 @@
 2019-11-11 10:33:26,969 BI_LOG_ERROR ERROR    Error Occured! for run report
 2019-11-11 14:38:34,255 BI_LOG_ERROR ERROR    Error Occured! for run report
 2019-11-11 14:39:01,050 BI_LOG_ERROR ERROR    Error Occured! for set params
+2019-11-12 09:52:24,433 BI_LOG_ERROR ERROR    parameter names that sent are different...
+2019-11-12 09:53:40,188 BI_LOG_ERROR ERROR    parameter names that sent are different...
+2019-11-12 09:53:57,141 BI_LOG_ERROR ERROR    parameter names that sent are different...
+2019-11-12 09:54:57,163 BI_LOG_ERROR ERROR    parameter names that sent are different...
+2019-11-12 09:55:30,716 BI_LOG_ERROR ERROR    parameter names that sent are different...
+2019-11-12 09:55:30,716 BI_LOG_ERROR ERROR    parameter names that sent are different...check param failed
+2019-11-12 10:33:09,114 BI_LOG_ERROR ERROR    Error Occured! for check params
+2019-11-12 10:33:09,114 BI_LOG_ERROR ERROR    Error Occured! for check paramscheck param failed
+2019-11-12 10:34:12,487 BI_LOG_ERROR ERROR    Error Occured! for check params
+2019-11-12 10:34:12,487 BI_LOG_ERROR ERROR    Error Occured! for check paramscheck param failed
+2019-11-12 10:34:51,171 BI_LOG_ERROR ERROR    Error Occured! for check params
+2019-11-12 10:34:51,171 BI_LOG_ERROR ERROR    Error Occured! for check paramscheck param failed
+2019-11-12 10:35:45,559 BI_LOG_ERROR ERROR    Error Occured! for check params
+2019-11-12 10:35:45,559 BI_LOG_ERROR ERROR    Error Occured! for check paramscheck param failed
+2019-11-12 10:36:33,706 BI_LOG_ERROR ERROR    Error Occured! for run report
+2019-11-12 10:36:33,707 BI_LOG_ERROR ERROR    Error Occured! for run report
