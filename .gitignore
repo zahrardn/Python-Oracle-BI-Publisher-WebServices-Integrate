@@ -2,3 +2,4 @@ files/*
 logs/*
 *.log
 *unit-test*
+*.pyc
