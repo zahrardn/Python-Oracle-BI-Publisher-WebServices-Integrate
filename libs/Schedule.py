@@ -38,7 +38,7 @@ class Schedule:
 			self.result = self.result + 'initial schedule failed'
 
 
-	def run(self,p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,p_doc_file_name,p_parameters_nam_val,p_start_date):
+	def run(self,p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,p_doc_file_name,p_parameters_nam_val,p_start_date,p_mail_subject,p_mail_body,p_mail_from,p_mail_to,p_mail_server):
 
 		try:
 			out_stored_path_name = p_stored_report_path + p_doc_file_name +'.' + p_output_type
@@ -55,12 +55,23 @@ class Schedule:
 				self.result = self.result + report.result
 				return False
 
+			# set local as default and mail if sent variables
+			# u can append other delivary output to this
+			delivary = [{"localOptions": [{'item' : { 'destination' : out_stored_path_name }}]}]
+			if not p_mail_subject and p_mail_body and p_mail_from and p_mail_to and p_mail_server:
+				delivary.append({"emailOptions": [{'item' : {
+												'emailBody'			: p_mail_body,
+												'emailFrom'			: p_mail_from,
+												'emailServerName'	: p_mail_server,
+												'emailSubject'		: p_mail_subject,
+												'emailTo'			: p_mail_to
+										}}]
+						})
+
 			# set schedule request
 			request_schedule = {
 					'scheduleRequest' : [{ 
-							'deliveryChannels' : [{
-												"localOptions": [{'item' : { 'destination' : out_stored_path_name }}]
-												}],
+							'deliveryChannels' : delivary,
 							#'notificationTo' : 'a@gmail.com',
 							'saveDataOption' 			: True,
 							'saveOutputOption' 			: True,

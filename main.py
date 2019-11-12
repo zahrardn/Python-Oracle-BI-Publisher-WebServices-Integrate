@@ -49,14 +49,14 @@ if __name__ == '__main__':
 			# report run FND RFND1600 /ISSUITE/ pdf def /u01/bashes/ irisa_radani abc '{"p3":"v1","p1":"v2"}' '' def.log
 			############ schedule #############
 			sch = Schedule.Schedule(sys.argv[9])
-			if sch.run(sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[10],json.loads(sys.argv[11]),sys.argv[12]):
+			if sch.run(sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[10],json.loads(sys.argv[11]),sys.argv[12],sys.argv[13],sys.argv[14],sys.argv[15],sys.argv[16],sys.argv[17]):
 				log_info.info(sch.result)
 			else:
 				log_error.error(sch.result)
 
 			# make result file
-			#f = open(sys.argv[8] + sys.argv[13], "w")
-			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[13], "w")
+			#f = open(sys.argv[8] + sys.argv[18], "w")
+			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[18], "w")
 			f.write(sch.result)
 			f.close()
 
