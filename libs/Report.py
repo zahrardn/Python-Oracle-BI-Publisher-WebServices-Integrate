@@ -12,11 +12,13 @@ from libs import Log
 # for call webservices
 from suds.client import Client
 import datetime
+import json
 
 class Report:
 
 	def __init__(self,p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,p_user,p_doc_file_name):
 		try:
+			log_info.info('*****************************************************')		
 			# wsdl for report category of BIP services 
 			wsdl = '/xmlpserver/services/v2/ReportService?wsdl'
 			self.client = Client(server_ip+wsdl)
@@ -97,7 +99,8 @@ class Report:
 
 	# add parameters to report request and run report
 	def run(self,parameters_nam_val):
-		try:
+		#try:
+			parameters_nam_val = json.loads(parameters_nam_val)
 			if not self.check_params(parameters_nam_val.keys()):
 				self.result = self.result + 'check param failed'
 				return False
@@ -117,8 +120,9 @@ class Report:
 			# store response to file
 			log_info.info('saved output file....')
 			self.result = 'success'
+			log_info.info('*****************************************************')		
 			return True
-		except:
-			log_error.error('Error Occured! for run report')
-			self.result = self.result + 'Error Occured! for run report'
-			return False
+		# except:
+		# 	log_error.error('Error Occured! for run report')
+		# 	self.result = self.result + 'Error Occured! for run report'
+		# 	return False

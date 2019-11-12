@@ -14,11 +14,12 @@ from libs import Report
 from suds.client import Client
 import datetime
 import pytz
+import json
 
 class Schedule:
 
 	def __init__(self,p_user):
-		try:			
+		try:
 			# wsdl for report category of BIP services 
 			wsdl = '/xmlpserver/services/v2/ScheduleService?wsdl'
 			self.client = Client(server_ip+wsdl)
@@ -39,8 +40,9 @@ class Schedule:
 
 
 	def run(self,p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,p_doc_file_name,p_parameters_nam_val,p_start_date,p_mail_subject,p_mail_body,p_mail_from,p_mail_to,p_mail_server):
-
-		try:
+			log_info.info('*****************************************************')		
+		#try:
+			p_parameters_nam_val = json.loads(p_parameters_nam_val)
 			out_stored_path_name = p_stored_report_path + p_doc_file_name +'.' + p_output_type
 
 			report = Report.Report(p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,self.user,p_doc_file_name)
@@ -92,14 +94,15 @@ class Schedule:
 			log_info.info('send for BI server for schedule report....')
 			self.result = self.client.service.scheduleReportInSession(**request_schedule)
 			#self.result = 'success'
+			log_info.info('*****************************************************')		
 			return True
-		except:
-			log_error.error('Error Occured! for schedule report')
-			self.result = self.result + 'Error Occured! for schedule report'
+		# except:
+		# 	log_error.error('Error Occured! for schedule report')
+		# 	self.result = self.result + 'Error Occured! for schedule report'
 
 
 	def job_history(self,p_job_id,p_out_path,p_out_file_name):
-
+			log_info.info('*****************************************************')		
 		#try:
 			request_history = {
 				'filter' : {
@@ -126,6 +129,7 @@ class Schedule:
 			f.close()
 
 			self.result = 'success'
+			log_info.info('*****************************************************')		
 			return True
 		# except:
 		# 	log_error.error('Error Occured! for schedule history report')
