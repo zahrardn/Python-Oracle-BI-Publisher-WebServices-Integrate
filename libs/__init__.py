@@ -16,10 +16,9 @@ server_ip_dest = 'http://172.27.3.15:9502'
 
 info_log_path_name = '/home/zahra/workspace/BI/BIPublisher/logs/info.log'
 error_log_path_name = '/home/zahra/workspace/BI/BIPublisher/logs/error.log'
-# report
-stored_report_path = '/u01/bashes/'
-reports_path='/ISSUITE/'
 
+time_zone = "Asia/Tehran"
+locale	  = "fa-IR"
 # logging
 log_obj = Log.LOG()
 log_info = log_obj.use_logging('BI_LOG_INFO',info_log_path_name,logging.INFO)

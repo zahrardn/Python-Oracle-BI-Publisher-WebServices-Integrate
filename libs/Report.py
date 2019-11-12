@@ -17,7 +17,6 @@ class Report:
 
 	def __init__(self,p_system_app_name,p_report_name,p_reports_path,p_output_type,p_layout,p_stored_report_path,p_user,p_doc_file_name):
 		try:
-			log_info.info('initial report ' + p_report_name + ' for ' + p_user + '....')
 			# wsdl for report category of BIP services 
 			wsdl = '/xmlpserver/services/v2/ReportService?wsdl'
 			self.client = Client(server_ip+wsdl)
@@ -36,8 +35,8 @@ class Report:
 										'attributeCalendar'			: 'Gregorian',
 										'attributeFormat'			: p_output_type,
 										'byPassCache'				: 'true',
-										'attributeLocale'			: 'fa-IR',
-										'attributeTimezone'			: 'Asia/Tehran',
+										'attributeLocale'			: locale,
+										'attributeTimezone'			: time_zone,
 										'attributeTemplate'			: p_layout,
 									    'reportAbsolutePath'		: p_reports_path + p_system_app_name + '/REPORTS/' + p_report_name + '.xdo',
 									    'flattenXML'				: 'true',
@@ -48,6 +47,7 @@ class Report:
 					#'userID':user,
 					#'password':passwrd
 					}
+			log_info.info('initialed report ' + p_report_name + ' for ' + p_user + '....')
 		except:
 			self.result = self.result + 'initial report failed'
 
@@ -60,8 +60,6 @@ class Report:
 			response = self.client.service.getReportParametersInSession(**self.request_data)
 			defined_params = list(map(str, [ param['name'] for param in response['listOfParamNameValues']['item']]))
 
-			print defined_params
-			print p_param_keys
 			if defined_params != p_param_keys:
 				log_error.error('parameter names that sent are different...')
 				self.result = self.result + 'parameter names that sent are different...'
