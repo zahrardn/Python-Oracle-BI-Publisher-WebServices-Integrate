@@ -28,13 +28,13 @@ class Schedule:
 			# authenticate
 			self.sec = Security.Security()
 			if self.sec.impersonate(p_user,server_ip,admin_user,admin_password):
-				log_info.info('impersonated for ' + p_user + ' ....')
+				log_info.info(log_id+'impersonated for ' + p_user + ' ....')
 			else:
 				log_error.error('impersonate failed for ' + p_user)
 				self.result = self.result + 'impersonate failed for ' + p_user
 
 			self.user = p_user
-			log_info.info('initialed schedule ....')
+			log_info.info(log_id+'initialed schedule ....')
 		except:
 			self.result = self.result + 'initial schedule failed'
 
@@ -51,7 +51,7 @@ class Schedule:
 				self.result = self.result + report.result
 				return False
 
-			log_info.info('start run schedule report ' + p_report_name + ' for ' + self.user + '....')
+			log_info.info(log_id+'start run schedule report ' + p_report_name + ' for ' + self.user + '....')
 
 			if not report.set_params(p_parameters_nam_val):
 				self.result = self.result + report.result
@@ -91,7 +91,7 @@ class Schedule:
 					'bipSessionToken' : self.sec.session_token 
 					}
 
-			log_info.info('send for BI server for schedule report....')
+			log_info.info(log_id+'send for BI server for schedule report....')
 			self.result = self.client.service.scheduleReportInSession(**request_schedule)
 			#self.result = 'success'
 			log_info.info('*****************************************************')		
