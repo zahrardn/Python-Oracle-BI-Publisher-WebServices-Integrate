@@ -113,7 +113,7 @@ class Schedule:
 				'beginIdx'		: 1,
 				'bipSessionToken' : self.sec.session_token 
 			}
-			log_info.info('send for BI server for get schedule history....')
+			log_info.info(log_id+'send for BI server for get schedule history....')
 			response = self.client.service.getAllScheduledReportHistoryInSession(**request_history)
 
 			start_date = response['jobInfoList']['item'][0]['startDate'].replace(tzinfo=pytz.utc).astimezone(pytz.timezone(time_zone)).strftime('%Y-%m-%d %H:%M:%S')
@@ -121,7 +121,7 @@ class Schedule:
 
 			report_name = response['jobInfoList']['item'][0]['reportUrl'].rsplit('/', 1)[1][:-4]
 
-			out = response['jobInfoList']['item'][0]['status'] + ',' + str(response['jobInfoList']['item'][0]['jobId']) + ',' + start_date + ',' + end_date + ',' + report_name + ', 0'
+			out = response['jobInfoList']['item'][0]['status'] + '\n' + str(response['jobInfoList']['item'][0]['jobId']) + '\n' + start_date + '\n' + end_date
 			
 			#f = open(p_out_path + p_out_file_name, "w")
 			f = open('/home/zahra/workspace/BI/BIPublisher/' + p_out_file_name, "w")

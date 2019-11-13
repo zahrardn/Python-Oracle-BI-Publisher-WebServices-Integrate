@@ -30,9 +30,9 @@ if __name__ == '__main__':
 			rep = Report.Report(sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[9],sys.argv[10])
 			###########run report ################
 			if rep.run(sys.argv[11]):
-				log_info.info(rep.result)
+				log_info.info(log_id+rep.result)
 			else:
-				log_error.error(rep.result)
+				log_error.error(log_id+rep.result)
 			# make result file
 			#f = open(sys.argv[8] + sys.argv[12], "w")
 			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[12], "w")
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 			f.close()
 
 		else:
-			log_error.error('''Error:2nd parameter should be in ''' + json.dumps(list(all_services[sys.argv[1]])))
+			log_error.error(log_id+'''Error:2nd parameter should be in ''' + json.dumps(list(all_services[sys.argv[1]])))
 
 	elif sys.argv[1] == 'schedule':
 		if sys.argv[2] == 'run':
@@ -49,9 +49,9 @@ if __name__ == '__main__':
 			############ schedule #############
 			sch = Schedule.Schedule(sys.argv[9])
 			if sch.run(sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[10],sys.argv[11],sys.argv[12],sys.argv[13],sys.argv[14],sys.argv[15],sys.argv[16],sys.argv[17]):
-				log_info.info(sch.result)
+				log_info.info(log_id+sch.result)
 			else:
-				log_error.error(sch.result)
+				log_error.error(log_id+sch.result)
 
 			# make result file
 			#f = open(sys.argv[8] + sys.argv[18], "w")
@@ -63,9 +63,9 @@ if __name__ == '__main__':
 			# 3: irisa_radani, 4:job_id, 5:out_path, 6: out_name, 7:log_name
 			sch = Schedule.Schedule(sys.argv[3])
 			if sch.job_history(sys.argv[4],sys.argv[5],sys.argv[6]):
-				log_info.info(sch.result)
+				log_info.info(log_id+sch.result)
 			else:
-				log_error.error(sch.result)
+				log_error.error(log_id+sch.result)
 
 			# make result file
 			#f = open(sys.argv[5] + sys.argv[7], "w")
@@ -74,6 +74,6 @@ if __name__ == '__main__':
 			f.close()
 
 	else:
-		log_error.error('Error to choose type from '+ json.dumps(all_services.keys()))
+		log_error.error(log_id+'Error to choose type from '+ json.dumps(all_services.keys()))
 	# except:
 	# 	log_error.error('error')

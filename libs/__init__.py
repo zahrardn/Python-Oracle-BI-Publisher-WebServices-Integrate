@@ -7,6 +7,7 @@
 '''
 from Log import *
 from libs import Security
+import random
 
 admin_user = 'weblogic'
 admin_password = 'OBIadmin46726'
@@ -23,3 +24,5 @@ locale	  = "fa-IR"
 log_obj = Log.LOG()
 log_info = log_obj.use_logging('BI_LOG_INFO',info_log_path_name,logging.INFO)
 log_error =log_obj.use_logging('BI_LOG_ERROR',error_log_path_name,logging.ERROR)
+
+log_id = str(random.randint(1000,9999))+'	'
