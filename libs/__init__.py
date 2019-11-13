@@ -9,14 +9,15 @@ from Log import *
 from libs import Security
 import random
 
-admin_user = 'weblogic'
-admin_password = 'OBIadmin46726'
+admin_user = 'adminuser'
+admin_password = 'adminpassword'
 
-server_ip = 'http://172.27.3.15:9502'
-server_ip_dest = 'http://172.27.3.15:9502'
+server_ip = 'http://[ip:port]'
 
 info_log_path_name = '/home/zahra/workspace/BI/BIPublisher/logs/info.log'
 error_log_path_name = '/home/zahra/workspace/BI/BIPublisher/logs/error.log'
+
+log_path = '/home/zahra/workspace/BI/BIPublisher/'
 
 time_zone = "Asia/Tehran"
 locale	  = "fa-IR"

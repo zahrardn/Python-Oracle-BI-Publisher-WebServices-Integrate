@@ -1,2 +1,6 @@
+# Python-Oracle-BI-Publisher-WebServices-Integrate
+Call oracle bi publisher web services for run, schedule,impersonate and job history reports and make python scripts
+
+requirnments:
 install pytz
 install python-suds

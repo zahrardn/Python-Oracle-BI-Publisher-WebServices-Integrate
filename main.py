@@ -35,7 +35,7 @@ if __name__ == '__main__':
 				log_error.error(log_id+rep.result)
 			# make result file
 			#f = open(sys.argv[8] + sys.argv[12], "w")
-			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[12], "w")
+			f = open(log_path + sys.argv[12], "w")
 			f.write(rep.result)
 			f.close()
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
 			# make result file
 			#f = open(sys.argv[8] + sys.argv[18], "w")
-			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[18], "w")
+			f = open(log_path + sys.argv[18], "w")
 			f.write(sch.result)
 			f.close()
 
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
 			# make result file
 			#f = open(sys.argv[5] + sys.argv[7], "w")
-			f = open('/home/zahra/workspace/BI/BIPublisher/' + sys.argv[7], "w")
+			f = open(log_path + sys.argv[7], "w")
 			f.write(sch.result)
 			f.close()
 

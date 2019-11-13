@@ -124,7 +124,7 @@ class Schedule:
 			out = response['jobInfoList']['item'][0]['status'] + '\n' + str(response['jobInfoList']['item'][0]['jobId']) + '\n' + start_date + '\n' + end_date
 			
 			#f = open(p_out_path + p_out_file_name, "w")
-			f = open('/home/zahra/workspace/BI/BIPublisher/' + p_out_file_name, "w")
+			f = open(log_path + p_out_file_name, "w")
 			f.write(out)
 			f.close()
 
