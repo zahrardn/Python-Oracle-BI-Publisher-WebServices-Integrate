@@ -4,3 +4,5 @@ Call oracle bi publisher web services for run, schedule,impersonate and job hist
 requirnments:
 install pytz
 install python-suds
+
+server ip and port and path to store logs should set in /libs/__init__.py
